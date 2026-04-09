@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排序報告 - 11428131</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>排序報告</h1>
+
+        <section id="bubble-sort">
+        <h2>氣泡排序法 (Bubble Sort)</h2>
+        <div class="content">
+                <p><strong>原理：</strong> 透過重複走訪要排序的數列，一次比較兩個元素，如果順序錯誤就交換。</p>
+                <p><strong>複雜度：O(n<sup>2</sup>)
+        
+                <button onclick="startBubbleSort()">開始排序</button>
+        
+                <div class="visualizer" id="bubble-visual"></div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="selection-sort">
+        <h2>選擇排序法 (Selection Sort)</h2>
+        <div class="content">
+                <p><strong>原理：</strong> 每一次從待排序的資料中選出最小的一個元素，存放在序列的起始位置，直到全部排完。</p>
+                <p><strong>複雜度：</strong> \( O(n^2) \)</p>
+        
+                <button onclick="startSelectionSort()">開始排序</button>
+        
+                <div class="visualizer" id="selection-visual"></div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="insertion-sort">
+        <h2>插入排序法 (Insertion Sort)</h2>
+        <div class="content">
+                <p><strong>原理：</strong> 將陣列分為「已排序」和「未排序」兩部分，每次從未排序中取出一個元素，插入到已排序部分的適當位置。</p>
+                <p><strong>複雜度：O(n<sup>2</sup>)
+        
+                <button onclick="startInsertionSort()">開始排序</button>
+        
+                <div class="visualizer" id="insertion-visual"></div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="merge-sort">
+        <h2>合併排序法 (Merge Sort)</h2>
+        <div class="content">
+                <p><strong>原理：</strong> 採用分而治之法。將大問題分成小問題（不斷將陣列切半），解決小問題（當陣列只剩一個元素時視為已排序）後，再將結果合併（Merge）。</p>
+        
+                <div class="analysis">
+                <p><strong>時間複雜度：</strong> 始終是 $O(n \log n)$。無論資料原本多亂，它的效能都非常穩定且優秀。在處理大量數據時，它比 $O(n^2)$ 的演算法快非常多。</p>
+                <p><strong>空間複雜度：</strong> $O(n)$。由於合併時需要額外的空間來暫時存放拆開的陣列，因此它比氣泡或插入排序更吃記憶體。</p>
+                <p><strong>穩定性：</strong> 穩定 (Stable)。在合併過程中，若遇到數值相同的元素，會優先處理左側元素，確保原始順序不變。</p>
+                </div>
+        
+                <button onclick="startMergeSort()">開始排序</button>
+        
+                <div class="visualizer" id="merge-visual"></div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="quick-sort">
+        <h2>快速排序法 (Quick Sort)</h2>
+        <div class="content">
+                <p><strong>原理：</strong> 挑選一個「基準點」(Pivot)，將比基準點小的排在左邊，比基準點大的排在右邊，再對左右兩邊重複此動作（遞迴）。</p>
+        
+                <div class="analysis">
+                <p><strong>時間複雜度：</strong> 平均 $O(n \log n)$，最壞情況下為 $O(n^2)$（當基準點選得不好時）。</p>
+                <p><strong>空間複雜度：</strong> $O(\log n)$，主要是遞迴呼叫堆疊產生的開銷。</p>
+                <p><strong>穩定性：</strong> 不穩定 (Unstable)。因為交換是跨越式的，相同數值的順序可能會被打亂。</p>
+                </div>
+        
+                <button onclick="startQuickSort()">開始排序</button>
+        
+                <div class="visualizer" id="quick-visual"></div>
+            </div>
+        </section>
+<hr>
+
+        <section id="comparison">
+        <h2>綜合比較 (Comparison)</h2>
+        <div class="content">
+                <p>下表整理了本報告中實作的五種排序演算法之效能對比：</p>
+        
+                <table class="compare-table">
+                <thead>
+                        <tr>
+                            <th>演算法</th>
+                            <th>最佳時間</th>
+                            <th>平均時間</th>
+                            <th>最壞時間</th>
+                            <th>空間複雜度</th>
+                            <th>穩定性</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>氣泡排序</td>
+                            <td>$O(n)$</td>
+                            <td>$O(n^2)$</td>
+                            <td>$O(n^2)$</td>
+                            <td>$O(1)$</td>
+                            <td>穩定</td>
+                        </tr>
+                        <tr>
+                            <td>選擇排序</td>
+                            <td>$O(n^2)$</td>
+                            <td>$O(n^2)$</td>
+                            <td>$O(n^2)$</td>
+                            <td>$O(1)$</td>
+                            <td>不穩定</td>
+                        </tr>
+                        <tr>
+                            <td>插入排序</td>
+                            <td>$O(n)$</td>
+                            <td>$O(n^2)$</td>
+                            <td>$O(n^2)$</td>
+                            <td>$O(1)$</td>
+                            <td>穩定</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>合併排序</td>
+                            <td>$O(n \log n)$</td>
+                            <td>$O(n \log n)$</td>
+                            <td>$O(n \log n)$</td>
+                            <td>$O(n)$</td>
+                            <td>穩定</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td>快速排序</td>
+                            <td>$O(n \log n)$</td>
+                            <td>$O(n \log n)$</td>
+                            <td>$O(n^2)$</td>
+                            <td>$O(\log n)$</td>
+                            <td>不穩定</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+<hr>  
+
+        <section id="reflection">
+            <h2>學習心得</h2>
+            <p>以前只知道 $O(n \log n)$ 比 $O(n^2)$ 快，但透過這次的 JavaScript 視覺化實作，我親眼看到當資料量增加時，氣泡排序與插入排序在畫面上的遲鈍，對比合併排序與快速排序那種俐落感。這讓我明白在處理海量數據時，選擇正確的演算法是多麼關鍵。</p>
+            <p>實作合併排序時，遞迴的概念起初讓我感到挫折，但在成功將陣列拆解並重新合併後，我對遞迴邏輯有了全新的認識。</p>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
